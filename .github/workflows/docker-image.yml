@@ -17,4 +17,4 @@ jobs:
       run: |
           cd /    && mpicxx hello_mpi.cpp   -o hello_mpi      && mpirun --allow-run-as-root -n 2 ./hello_mpi
           cd /    && upcxx  hello_upcxx.cpp -o hello_upcxx -g && upcxx-run -n 2 ./hello_upcxx
-          cd /src && mpicxx app.cpp         -o app            && mpirun --allow-run-as-root -n 2 ./app
+          cd $GITHUB_WORKSPACE/src && mpicxx app.cpp         -o app            && mpirun --allow-run-as-root -n 2 ./app
