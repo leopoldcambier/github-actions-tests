@@ -12,4 +12,5 @@ jobs:
     container: docker.io/lcambier/testdocker:latest 
     steps:
     - name: Run in container
-      run: cd / && mpicxx hello_mpi.cpp && mpirun -n 2 ./a.out
+      run: cd / && mpicxx hello_mpi.cpp   && mpirun --allow-run-as-root -n 2 ./a.out
+      run: cd / && upcxx  hello_upcxx.cpp && upcxx-run -n 2 ./a.out
