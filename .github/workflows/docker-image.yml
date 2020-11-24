@@ -7,12 +7,9 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
+    container: docker.io/lcambier/testdocker:latest 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Run in container
+    - run: cd / && mpicxx hello_mpi.cpp && mpirun -n 2 ./a.out
