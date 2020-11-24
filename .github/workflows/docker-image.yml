@@ -13,5 +13,5 @@ jobs:
     steps:
     - name: Run in container
       run: |
-          cd / && mpicxx hello_mpi.cpp   && mpirun --allow-run-as-root -n 2 ./a.out
-          cd / && upcxx  hello_upcxx.cpp && upcxx-run -n 2 ./a.out
+          cd / && mpicxx hello_mpi.cpp   -o hello_mpi      && mpirun --allow-run-as-root -n 2 ./hello_mpi
+          cd / && upcxx  hello_upcxx.cpp -o hello_upcxx -g && upcxx-run -n 2 ./hello_upcxx
