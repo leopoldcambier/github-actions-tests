@@ -12,4 +12,4 @@ jobs:
     container: docker.io/lcambier/testdocker:latest 
     steps:
     - name: Run in container
-    - run: cd / && mpicxx hello_mpi.cpp && mpirun -n 2 ./a.out
+      run: cd / && mpicxx hello_mpi.cpp && mpirun -n 2 ./a.out
