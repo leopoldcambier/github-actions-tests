@@ -11,5 +11,8 @@ RUN wget https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.bz2 -
 RUN wget https://bitbucket.org/berkeleylab/upcxx/downloads/upcxx-2020.10.0.tar.gz -O upcxx-2020.10.0.tar.gz && mkdir upcxx && tar -xvzf upcxx-2020.10.0.tar.gz -C upcxx --strip-component 1
 RUN cd upcxx && ./configure && make all && make install
 
+RUN apt-get install -y ssh
+ENV PATH "$PATH:/usr/local/upcxx/bin"
+
 COPY hello_mpi.cpp /
 COPY hello_upcxx.cpp /
